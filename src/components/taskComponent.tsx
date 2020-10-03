@@ -10,6 +10,7 @@ interface IProps {
 }
 
 interface IState {}
+
 @observer
 export default class TaskComponent extends React.Component<IProps, IState> {
   render() {

@@ -7,36 +7,27 @@ export default class TasksStore {
 
   @computed
   public get getTodoTasks() {
-    console.log('to do updated')
-    var todoTasks = this.todoTasks;
-    return todoTasks;
+    return this.todoTasks;
   }
 
   @computed
   public get reveresedTodoTasks() {
-    var todoTasks = this.todoTasks;
-    return todoTasks.reverse();
+    return this.todoTasks.reverse();
   }
 
   @computed
   public get getFinishedTasks() {
-    console.log('finished updated');
-    var finishedTasks = this.finishedTasks;
-    return finishedTasks;
+    return this.finishedTasks;
   }
 
   @computed
   public get reveresedFinishedTasks() {
-    var finishedTasks = this.finishedTasks;
-    return finishedTasks.reverse();
+    return this.finishedTasks.reverse();
   }
 
-  // -- @action
   @action
   public addTask(task: Task) {
-    var temp = this.todoTasks;
-    temp.push(task);
-    this.todoTasks = temp;
+    this.todoTasks.push(task);
   }
 
   @action

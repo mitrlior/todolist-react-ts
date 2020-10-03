@@ -1,3 +1,5 @@
+import { observable } from "mobx";
+
 export default class Task {
   private text: string = "";
   private key: number = 0;

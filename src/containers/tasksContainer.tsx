@@ -1,4 +1,5 @@
-import { observer } from "mobx-react";
+import { action, computed, observe } from "mobx";
+import { observer, observerBatching } from "mobx-react";
 import React from "react";
 import TaskComponent from "../components/taskComponent";
 import Task from "../models/task.models";
@@ -70,6 +71,7 @@ export default class TaskContainer extends React.Component<IProps, IState> {
       </div>
     );
   }
+
   private displayTodo() {
     var todoTasks = tasksStore.reveresedTodoTasks;
     return todoTasks.map((task: Task) => {

@@ -1,5 +1,4 @@
-import { action, computed, observe } from "mobx";
-import { observer, observerBatching } from "mobx-react";
+import { observer } from "mobx-react";
 import React from "react";
 import TaskComponent from "../components/taskComponent";
 import Task from "../models/task.models";

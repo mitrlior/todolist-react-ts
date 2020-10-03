@@ -2,27 +2,33 @@ import { action, computed, observable } from "mobx";
 import Task from "../models/task.models";
 
 export default class TasksStore {
-  @observable private todoTasks: Array<Task> = [];
-  @observable private finishedTasks: Array<Task> = [];
+  @observable public todoTasks: Array<Task> = [];
+  @observable public finishedTasks: Array<Task> = [];
 
   @computed
   public get getTodoTasks() {
-    return this.todoTasks;
+    console.log('to do updated')
+    var todoTasks = this.todoTasks;
+    return todoTasks;
   }
 
   @computed
   public get reveresedTodoTasks() {
-    return this.todoTasks.reverse();
+    var todoTasks = this.todoTasks;
+    return todoTasks.reverse();
   }
 
   @computed
   public get getFinishedTasks() {
-    return this.finishedTasks;
+    console.log('finished updated');
+    var finishedTasks = this.finishedTasks;
+    return finishedTasks;
   }
 
   @computed
   public get reveresedFinishedTasks() {
-    return this.finishedTasks.reverse();
+    var finishedTasks = this.finishedTasks;
+    return finishedTasks.reverse();
   }
 
   // -- @action

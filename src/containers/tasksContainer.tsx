@@ -60,7 +60,6 @@ export default class TaskContainer extends React.Component<IProps, IState> {
           );
         })}
         {tasksStore.reveresedFinishedTasks.map((task: Task) => {
-          console.log(task);
           return (
             <TaskComponent
               task={task}
@@ -71,10 +70,9 @@ export default class TaskContainer extends React.Component<IProps, IState> {
       </div>
     );
   }
-
   private displayTodo() {
-    console.log("display todo tasks");
-    return tasksStore.reveresedTodoTasks.map((task: Task) => {
+    var todoTasks = tasksStore.reveresedTodoTasks;
+    return todoTasks.map((task: Task) => {
       return (
         <TaskComponent
           task={task}
@@ -83,11 +81,9 @@ export default class TaskContainer extends React.Component<IProps, IState> {
       );
     });
   }
-
   private displayFinished() {
-    console.log("display finished tasks");
-    return tasksStore.reveresedFinishedTasks.map((task: Task) => {
-      console.log(task);
+    var todoTasksFiniehed = tasksStore.reveresedFinishedTasks;
+    return todoTasksFiniehed.map((task: Task) => {
       return (
         <TaskComponent
           task={task}
@@ -107,27 +103,28 @@ export default class TaskContainer extends React.Component<IProps, IState> {
   };
 
   private handleOnClick(task: Task) {
-    console.log("handle on click");
     if (task.getIsDone) {
       tasksStore.removeTask(task);
     }else{
     tasksStore.doneTask(task);
     }
-    this.setState({});
   }
 
   private handleSubmit= async (
     e: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     e.preventDefault();
-    tasksStore.addTask(
-      new Task(this.state.currentItem.text, this.state.currentItem.key)
-    );
-    this.setState({
-      currentItem : {
-        text : "",
-        key : 0
-      }
-    });
+    if(this.state.currentItem.text !== "")
+      {
+        tasksStore.addTask(
+        new Task(this.state.currentItem.text, this.state.currentItem.key)
+      );
+      this.setState({
+        currentItem : {
+          text : "",
+          key : 0
+        }
+      });
+    }
   }
 }

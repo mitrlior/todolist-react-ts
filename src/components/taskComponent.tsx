@@ -25,7 +25,6 @@ export default class TaskComponent extends React.Component<IProps, IState> {
       </div>
     );
   }
-
   displayText() {
     if (this.props.task.getIsDone) {
       return <s>{this.props.task.getText}</s>;

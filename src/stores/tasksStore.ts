@@ -2,30 +2,31 @@ import { action, computed, observable } from "mobx";
 import Task from "../models/task.models";
 
 export default class TasksStore {
-  @observable public todoTasks: Array<Task> = [];
-  @observable public finishedTasks: Array<Task> = [];
+  @observable public todoTasks: Array<Task> = Array<Task>();
+  @observable public finishedTasks: Array<Task> = Array<Task>();
 
   @computed
-  public get getTodoTasks() {
+  public get getTodoTasks(): Array<Task>{
     return this.todoTasks;
   }
 
   @computed
-  public get reveresedTodoTasks() {
+  public get reveresedTodoTasks(): Array<Task> {
     return this.todoTasks.reverse();
   }
 
   @computed
-  public get getFinishedTasks() {
+  public get getFinishedTasks(): Array<Task> {
     return this.finishedTasks;
   }
 
   @computed
-  public get reveresedFinishedTasks() {
+  public get reveresedFinishedTasks(): Array<Task> {
     return this.finishedTasks.reverse();
   }
 
-  @action public addTask(task: Task) {
+  @action 
+  public addTask(task: Task) {
     this.todoTasks.push(task);
   }
 

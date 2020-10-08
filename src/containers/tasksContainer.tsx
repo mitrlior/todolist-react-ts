@@ -31,7 +31,6 @@ export default class TaskContainer extends React.Component<IProps, IState> {
   render() {
     return (
       <div className="App">
-        <header>
           {
             //TODO: extract to external component (+ state) */
           }
@@ -44,7 +43,6 @@ export default class TaskContainer extends React.Component<IProps, IState> {
             />
             <button type="submit">Add Task</button>
           </form>
-        </header>
         {this.tasksStore.reveresedTodoTasks.map((task: Task) => {
           return (
             <TaskComponent
@@ -53,7 +51,7 @@ export default class TaskContainer extends React.Component<IProps, IState> {
             />
           );
         })}
-        {this.tasksStore.reveresedFinishedTasks.map((task: Task) => {
+        { this.tasksStore.reveresedFinishedTasks.map((task: Task) => {
           return (
             <TaskComponent
               task={task}
@@ -95,7 +93,7 @@ export default class TaskContainer extends React.Component<IProps, IState> {
         key: Date.now(),
       },
     });
-  };
+  }
   private handleOnClick(task: Task) {
     if (task.getIsDone) {
       this.tasksStore.removeTask(task);
@@ -119,5 +117,5 @@ export default class TaskContainer extends React.Component<IProps, IState> {
         },
       });
     }
-  };
+  }
 }

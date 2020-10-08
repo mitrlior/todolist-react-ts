@@ -12,13 +12,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <Provider {...rootStores}>
-        <body>
-          <div className="App">
+      <body id="body">
+        <Provider {...rootStores}>
             <TaskContainer />
-          </div>
-        </body>
-      </Provider>
+        </Provider>
+      </body>
     );
   }
 }

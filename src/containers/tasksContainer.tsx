@@ -4,8 +4,7 @@ import TaskComponent from "../components/taskComponent";
 import Task from "../models/task.models";
 import rootStores from "../stores";
 import { TASKS_STORE } from "../stores/storesKeys";
-
-const tasksStore = rootStores[TASKS_STORE];
+import "./TaskContainer.css"
 
 interface IProps {}
 
@@ -15,9 +14,9 @@ interface IState {
     key: number;
   };
 }
-
 @observer
 export default class TaskContainer extends React.Component<IProps, IState> {
+  tasksStore = rootStores[TASKS_STORE];
   constructor(props: IProps) {
     super(props);
     this.state = {
@@ -31,27 +30,22 @@ export default class TaskContainer extends React.Component<IProps, IState> {
 
   render() {
     return (
-      <div>
+      <div className="App">
         <header>
           {
             //TODO: extract to external component (+ state) */
           }
-          <form
-            id="to-do-form"
-            onSubmit={this.handleSubmit}
-          >
+          <form id="to-do-form" onSubmit={this.handleSubmit}>
             <input
               type="text"
               placeholder="Enter Task"
               value={this.state.currentItem.text}
               onChange={this.handleInput}
             />
-            <button type="submit">
-              Add Task
-            </button>
+            <button type="submit">Add Task</button>
           </form>
         </header>
-        {tasksStore.reveresedTodoTasks.map((task: Task) => {
+        {this.tasksStore.reveresedTodoTasks.map((task: Task) => {
           return (
             <TaskComponent
               task={task}
@@ -59,7 +53,7 @@ export default class TaskContainer extends React.Component<IProps, IState> {
             />
           );
         })}
-        {tasksStore.reveresedFinishedTasks.map((task: Task) => {
+        {this.tasksStore.reveresedFinishedTasks.map((task: Task) => {
           return (
             <TaskComponent
               task={task}
@@ -72,7 +66,7 @@ export default class TaskContainer extends React.Component<IProps, IState> {
   }
 
   private displayTodo() {
-    var todoTasks = tasksStore.reveresedTodoTasks;
+    var todoTasks = this.tasksStore.reveresedTodoTasks;
     return todoTasks.map((task: Task) => {
       return (
         <TaskComponent
@@ -83,7 +77,7 @@ export default class TaskContainer extends React.Component<IProps, IState> {
     });
   }
   private displayFinished() {
-    var todoTasksFiniehed = tasksStore.reveresedFinishedTasks;
+    var todoTasksFiniehed = this.tasksStore.reveresedFinishedTasks;
     return todoTasksFiniehed.map((task: Task) => {
       return (
         <TaskComponent
@@ -102,30 +96,28 @@ export default class TaskContainer extends React.Component<IProps, IState> {
       },
     });
   };
-
   private handleOnClick(task: Task) {
     if (task.getIsDone) {
-      tasksStore.removeTask(task);
-    }else{
-    tasksStore.doneTask(task);
+      this.tasksStore.removeTask(task);
+    } else {
+      this.tasksStore.doneTask(task);
     }
   }
 
-  private handleSubmit= async (
+  private handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     e.preventDefault();
-    if(this.state.currentItem.text !== "")
-      {
-        tasksStore.addTask(
+    if (this.state.currentItem.text !== "") {
+      this.tasksStore.addTask(
         new Task(this.state.currentItem.text, this.state.currentItem.key)
       );
       this.setState({
-        currentItem : {
-          text : "",
-          key : 0
-        }
+        currentItem: {
+          text: "",
+          key: 0,
+        },
       });
     }
-  }
+  };
 }

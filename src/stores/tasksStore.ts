@@ -25,8 +25,7 @@ export default class TasksStore {
     return this.finishedTasks.reverse();
   }
 
-  @action
-  public addTask(task: Task) {
+  @action public addTask(task: Task) {
     this.todoTasks.push(task);
   }
 

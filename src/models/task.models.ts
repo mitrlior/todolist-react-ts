@@ -1,4 +1,3 @@
-import { observable } from "mobx";
 
 export default class Task {
   private text: string = "";

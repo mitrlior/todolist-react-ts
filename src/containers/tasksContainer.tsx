@@ -14,6 +14,7 @@ interface IState {
     key: number;
   };
 }
+
 @observer
 export default class TaskContainer extends React.Component<IProps, IState> {
   tasksStore = rootStores[TASKS_STORE];
@@ -31,18 +32,18 @@ export default class TaskContainer extends React.Component<IProps, IState> {
   render() {
     return (
       <div className="App">
-          {
-            //TODO: extract to external component (+ state) */
-          }
-          <form id="to-do-form" onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              placeholder="Enter Task"
-              value={this.state.currentItem.text}
-              onChange={this.handleInput}
-            />
-            <button type="submit">Add Task</button>
-          </form>
+        {
+          //TODO: extract to external component (+ state) */
+        }
+        <form id="to-do-form" onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            placeholder="Enter Task"
+            value={this.state.currentItem.text}
+            onChange={this.handleInput}
+          />
+          <button type="submit">Add Task</button>
+        </form>
         {this.tasksStore.reveresedTodoTasks.map((task: Task) => {
           return (
             <TaskComponent
@@ -51,7 +52,7 @@ export default class TaskContainer extends React.Component<IProps, IState> {
             />
           );
         })}
-        { this.tasksStore.reveresedFinishedTasks.map((task: Task) => {
+        {this.tasksStore.reveresedFinishedTasks.map((task: Task) => {
           return (
             <TaskComponent
               task={task}
@@ -63,7 +64,7 @@ export default class TaskContainer extends React.Component<IProps, IState> {
     );
   }
 
-  private displayTodo() {
+  displayTodo() {
     var todoTasks = this.tasksStore.reveresedTodoTasks;
     return todoTasks.map((task: Task) => {
       return (
@@ -74,7 +75,7 @@ export default class TaskContainer extends React.Component<IProps, IState> {
       );
     });
   }
-  private displayFinished() {
+  displayFinished() {
     var todoTasksFiniehed = this.tasksStore.reveresedFinishedTasks;
     return todoTasksFiniehed.map((task: Task) => {
       return (
@@ -93,7 +94,7 @@ export default class TaskContainer extends React.Component<IProps, IState> {
         key: Date.now(),
       },
     });
-  }
+  };
   private handleOnClick(task: Task) {
     if (task.getIsDone) {
       this.tasksStore.removeTask(task);
@@ -117,5 +118,5 @@ export default class TaskContainer extends React.Component<IProps, IState> {
         },
       });
     }
-  }
+  };
 }

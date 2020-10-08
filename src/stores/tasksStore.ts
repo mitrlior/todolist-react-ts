@@ -27,9 +27,8 @@ export default class TasksStore {
 
   @action 
   public addTask(task: Task) {
-    this.todoTasks.push(task);
+    this.todoTasks = this.todoTasks.concat(task);
   }
-
   @action
   public removeTask(taskToRemove: Task) {
     this.finishedTasks.splice(
@@ -39,16 +38,13 @@ export default class TasksStore {
       1
     );
   }
-
   @action
   public doneTask(taskToMove: Task) {
-    var temp = this.finishedTasks;
     taskToMove.setIsDone(true);
     var tasks: Task[] = this.todoTasks.splice(
       this.todoTasks.findIndex((task) => taskToMove.getKey === task.getKey),
       1
     );
-    temp.push(tasks[0]);
-    this.finishedTasks = temp;
+    this.finishedTasks = this.finishedTasks.concat(tasks[0]);
   }
 }

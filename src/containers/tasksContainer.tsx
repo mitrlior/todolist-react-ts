@@ -14,7 +14,6 @@ interface IState {
     key: number;
   };
 }
-
 @observer
 export default class TaskContainer extends React.Component<IProps, IState> {
   tasksStore = rootStores[TASKS_STORE];
@@ -28,7 +27,6 @@ export default class TaskContainer extends React.Component<IProps, IState> {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   render() {
     return (
       <div className="App">
@@ -63,7 +61,6 @@ export default class TaskContainer extends React.Component<IProps, IState> {
       </div>
     );
   }
-
   displayTodo() {
     var todoTasks = this.tasksStore.reveresedTodoTasks;
     return todoTasks.map((task: Task) => {
@@ -86,7 +83,6 @@ export default class TaskContainer extends React.Component<IProps, IState> {
       );
     });
   }
-
   private handleInput = (e: any) => {
     this.setState({
       currentItem: {
@@ -102,7 +98,6 @@ export default class TaskContainer extends React.Component<IProps, IState> {
       this.tasksStore.doneTask(task);
     }
   }
-
   private handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {

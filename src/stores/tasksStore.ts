@@ -1,18 +1,22 @@
-import { action, computed, observable } from "mobx";
+import { action, computed, makeObservable, observable } from "mobx";
 import Task from "../models/task.models";
 
 export default class TasksStore {
   @observable public todoTasks: Array<Task> = Array<Task>();
   @observable public finishedTasks: Array<Task> = Array<Task>();
 
+  constructor() {
+    makeObservable(this);
+  }
+
   @computed
-  public get getTodoTasks(): Array<Task>{
+  public get getTodoTasks(): Array<Task> {
     return this.todoTasks;
   }
 
   @computed
   public get reveresedTodoTasks(): Array<Task> {
-    return this.todoTasks.reverse();
+    return this.todoTasks.slice().reverse();
   }
 
   @computed
@@ -22,10 +26,10 @@ export default class TasksStore {
 
   @computed
   public get reveresedFinishedTasks(): Array<Task> {
-    return this.finishedTasks.reverse();
+    return this.finishedTasks.slice().reverse();
   }
 
-  @action 
+  @action
   public addTask(task: Task) {
     this.todoTasks = this.todoTasks.concat(task);
   }

@@ -25,14 +25,14 @@ export default class TaskComponent extends React.Component<IProps, IState> {
       </div>
     );
   }
-  displayText() {
+  private displayText() {
     if (this.props.task.getIsDone) {
       return <s>{this.props.task.getText}</s>;
     }
     return this.props.task.getText;
   }
 
-  showIcon() {
+  private showIcon() {
     return this.props.task.getIsDone ? "trash" : "check";
   }
 }

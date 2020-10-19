@@ -1,3 +1,4 @@
 .App{
-    background-color: aqua;
+    background: lightblue;
+    background-attachment: fixed;
 }

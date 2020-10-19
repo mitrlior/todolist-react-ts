@@ -8,7 +8,7 @@ import rootStores from "./stores";
 class App extends React.Component {
   componentDidMount() {
     document.title = "to do";
-    //document.body.style.backgroundColor= 'red';
+    document.body.style.backgroundColor= 'lightBlue';
   }
 
   render() {

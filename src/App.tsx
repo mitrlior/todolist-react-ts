@@ -5,6 +5,8 @@ import TaskContainer from "./containers/tasksContainer";
 import rootStores from "./stores";
 import { Route } from "react-router";
 import { BrowserRouter } from "react-router-dom";
+import { Input, Menu, Segment } from "semantic-ui-react";
+import NavBar from "./components/navbar";
 
 @observer
 class App extends React.Component {
@@ -16,6 +18,7 @@ class App extends React.Component {
   render() {
     return (
 			<Provider {...rootStores}>
+        <NavBar/>
 				<BrowserRouter>
 					<div className="App">
             <TaskContainer/>

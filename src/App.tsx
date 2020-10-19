@@ -8,13 +8,16 @@ import rootStores from "./stores";
 class App extends React.Component {
   componentDidMount() {
     document.title = "to do";
+    //document.body.style.backgroundColor= 'red';
   }
 
   render() {
     return (
-        <Provider {...rootStores}>
-          <TaskContainer />
-        </Provider>
+      <Provider {...rootStores}>
+          <div className="App">
+            <TaskContainer />
+          </div>
+      </Provider>
     );
   }
 }

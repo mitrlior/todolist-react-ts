@@ -1,6 +1,9 @@
 import { observer } from "mobx-react";
 import React from "react";
+import AddTaskComponent from "../components/addTaskComponent";
+import FinishedTasksListComponent from "../components/finishedTasksListComponent";
 import TaskComponent from "../components/taskComponent";
+import TodoTasksListComponent from "../components/todoTasksListComponent";
 import Task from "../models/task.models";
 import rootStores from "../stores";
 import { TASKS_STORE } from "../stores/storesKeys";
@@ -8,12 +11,8 @@ import "./TaskContainer.css"
 
 interface IProps {}
 
-interface IState {
-  currentItem: {
-    text: string;
-    key: number;
-  };
-}
+interface IState {}
+
 @observer
 export default class TaskContainer extends React.Component<IProps, IState> {
   tasksStore = rootStores[TASKS_STORE];
@@ -25,39 +24,14 @@ export default class TaskContainer extends React.Component<IProps, IState> {
         key: 0,
       },
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
   render() {
     return (
-      <div className="App">
-        {
-          //TODO: extract to external component (+ state) */
-        }
-        <form id="to-do-form" onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="Enter Task"
-            value={this.state.currentItem.text}
-            onChange={this.handleInput}
-          />
-          <button type="submit">Add Task</button>
-        </form>
-        {this.tasksStore.reveresedTodoTasks.map((task: Task) => {
-          return (
-            <TaskComponent
-              task={task}
-              handleOnClick={() => this.handleOnClick(task)}
-            />
-          );
-        })}
-        {this.tasksStore.reveresedFinishedTasks.map((task: Task) => {
-          return (
-            <TaskComponent
-              task={task}
-              handleOnClick={() => this.handleOnClick(task)}
-            />
-          );
-        })}
+      <div className="Tasks">
+        <AddTaskComponent />
+        <TodoTasksListComponent/>
+        <FinishedTasksListComponent/>
       </div>
     );
   }
@@ -83,14 +57,6 @@ export default class TaskContainer extends React.Component<IProps, IState> {
       );
     });
   }
-  private handleInput = (e: any) => {
-    this.setState({
-      currentItem: {
-        text: e.target.value,
-        key: Date.now(),
-      },
-    });
-  };
   private handleOnClick(task: Task) {
     if (task.getIsDone) {
       this.tasksStore.removeTask(task);
@@ -98,20 +64,4 @@ export default class TaskContainer extends React.Component<IProps, IState> {
       this.tasksStore.doneTask(task);
     }
   }
-  private handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
-  ): Promise<void> => {
-    e.preventDefault();
-    if (this.state.currentItem.text !== "") {
-      this.tasksStore.addTask(
-        new Task(this.state.currentItem.text, this.state.currentItem.key)
-      );
-      this.setState({
-        currentItem: {
-          text: "",
-          key: 0,
-        },
-      });
-    }
-  };
 }

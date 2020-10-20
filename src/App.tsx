@@ -15,7 +15,6 @@ class App extends React.Component {
 		document.title = "to do";
 		document.body.style.backgroundColor = "lightBlue";
 	}
-
 	render() {
 		return (
 			<Provider {...rootStores}>

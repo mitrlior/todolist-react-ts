@@ -1,23 +1,23 @@
 .task {
-  color: white;
-  background-color: blue;
-  width: 25vw;
-  height: 3vh;
-  margin: 1% auto;
-  padding: 300px auto;
-  border-radius: 1vh;
+	color: white;
+	background-color: blue;
+	width: 25vw;
+	height: 3vh;
+	margin: 1% auto;
+	padding: 300px auto;
+	border-radius: 1vh;
 }
 .task p {
-  padding-left: 1vw;
-  position: relative;
-  text-align: initial;
+	padding-left: 1vw;
+	position: relative;
+	text-align: initial;
 }
 .task p span {
-  position: absolute;
-  right: 0.5vw;
-  cursor: pointer;
+	position: absolute;
+	right: 0.5vw;
+	cursor: pointer;
 }
 .faicons {
-  margin: 1vh;
-  font-size: medium;
+	margin: 1vh;
+	font-size: medium;
 }

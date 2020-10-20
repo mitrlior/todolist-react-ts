@@ -1,0 +1,14 @@
+.Tasks {
+	min-height: 30vh;
+	min-width: 10vw;
+	max-width: 30vw;
+	background-color: blueviolet;
+	flex-wrap: wrap;
+	margin: auto;
+	border-radius: 20px;
+}
+h1 {
+	color: antiquewhite;
+  font-style: italic;
+  font-weight: bold;
+}

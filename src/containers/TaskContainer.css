@@ -1,10 +1,8 @@
-.Tasks{
+.AllTasks{
     background-color: blueviolet;
     min-height: 30vh;
     min-width: 10vw;
     max-width: 30vw;
     margin: auto;
     border-radius: 20px;
-    padding-bottom: 1vh;
-    margin-top: 10vh;
 }

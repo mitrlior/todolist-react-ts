@@ -1,30 +1,38 @@
-ul {
+li{
 	list-style-type: none;
-	margin: 0;
-	padding-left: 0;
-	overflow: hidden;
-	background-color: #333;
-}
-
-nav .nav-links {
-	float: left;
-	display: flex;
-	width: 10%;
-}
-
-nav li a {
 	display: block;
-	color: white;
-	text-align: center;
-	padding: 14px, 16px;
+}
+a{
 	text-decoration: none;
 }
-li a:hover {
-	background-color: aquamarine;
-}
 nav {
+	margin-left: 10%;
+	margin-right: 10%;
 	display: flex;
 	justify-content: space-around;
-	min-height: 3vh;
 	align-items: center;
+	background-color: gray;
+	border-radius: 5px;
+}
+nav .logo{
+	font-size: large;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+nav .nav-links {
+	display: flex;
+	justify-content: space-around;
+	width: 30%;
+}
+nav .nav-links a {
+	color: black;
+	font-size: larger;
+	font-weight: normal;
+	cursor: pointer;
+	display: block;
+	padding: 5%;
+}
+nav .nav-links a:hover{
+	border-bottom: 1px solid white;
+	background-color: lightblue;
 }

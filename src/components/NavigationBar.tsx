@@ -1,33 +1,29 @@
 import React from "react";
-
+import "./NavigationBar.css";
 interface IProps {}
 interface IState {}
 
 export default class NavigationBar extends React.Component<IProps, IState> {
 	render() {
 		return (
-			<nav>
-				<div>
+			<div>
+				<nav>
 					<ul className="nav-links">
 						<li>
-							<a className="active" href="/" />
-							Home
+							<a href="/">Home</a>
 						</li>
 						<li>
-							<a href="/tasks" />
-							Tasks
+							<a href="/tasks">Tasks</a>
 						</li>
 						<li>
-							<a href="/todos" />
-							Todos
+							<a href="/todos">Todos</a>
 						</li>
 						<li>
-							<a href="/finished" />
-							Finisehd
+							<a href="/finished">Finished</a>
 						</li>
 					</ul>
-				</div>
-			</nav>
+				</nav>
+			</div>
 		);
 	}
 }

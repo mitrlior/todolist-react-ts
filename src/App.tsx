@@ -3,11 +3,11 @@ import { observer, Provider } from "mobx-react";
 import React from "react";
 import TaskContainer from "./containers/tasksContainer";
 import rootStores from "./stores";
-import { Route, Router, Switch } from "react-router";
+import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
-import NavBar from "./components/navbar";
 import TodoTasksListComponent from "./components/Tasks/todoTasksListComponent";
 import FinishedTasksListComponent from "./components/Tasks/finishedTasksListComponent";
+import NavigationBar from "./components/NavigationBar";
 
 @observer
 class App extends React.Component {
@@ -20,7 +20,7 @@ class App extends React.Component {
 		return (
 			<Provider {...rootStores}>
 				<BrowserRouter>
-					<NavBar />
+					<NavigationBar />
 					<Switch>
 						<Route path="/Tasks">
 							<TaskContainer />

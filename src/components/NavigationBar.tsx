@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./NavigationBar.css";
 interface IProps {}
 interface IState {}
@@ -10,16 +11,16 @@ export default class NavigationBar extends React.Component<IProps, IState> {
 				<nav>
 					<ul className="nav-links">
 						<li>
-							<a href="/">Home</a>
+							<Link to="/">Home</Link>
 						</li>
 						<li>
-							<a href="/tasks">Tasks</a>
+							<Link to="/tasks">Tasks</Link>
 						</li>
 						<li>
-							<a href="/todos">Todos</a>
+							<Link to="/todos">Todos</Link>
 						</li>
 						<li>
-							<a href="/finished">Finished</a>
+							<Link to="/finished">Finished</Link>
 						</li>
 					</ul>
 				</nav>

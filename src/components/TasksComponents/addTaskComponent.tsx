@@ -27,15 +27,20 @@ export default class AddTaskComponent extends React.Component<IProps, IState> {
 	}
 	render() {
 		return (
-			<form id="to-do-form" onSubmit={this.handleSubmit}>
-				<input
-					type="text"
-					placeholder="Enter Task"
-					value={this.state.currentItem.text}
-					onChange={this.handleInput}
-				/>
-				<button type="submit">Add Task</button>
-			</form>
+			<div className="to-do-wrapper">
+				<form className="to-do-form" onSubmit={this.handleSubmit}>
+					<input
+						className="addTaskInput"
+						type="text"
+						placeholder="Enter Task"
+						value={this.state.currentItem.text}
+						onChange={this.handleInput}
+					/>
+					<button className="addTaskBtn" type="submit">
+						Add Task
+					</button>
+				</form>
+			</div>
 		);
 	}
 	private handleInput = (e: any) => {

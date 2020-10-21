@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import TodoTasksListComponent from "./components/TasksComponents/todoTasksListComponent";
 import FinishedTasksListComponent from "./components/TasksComponents/finishedTasksListComponent";
 import NavigationBar from "./components/NavigationBar";
+import { SignUP } from "./components/SignUpForm";
 
 @observer
 class App extends React.Component {
@@ -29,6 +30,9 @@ class App extends React.Component {
 						</Route>
 						<Route path="/finished">
 							<FinishedTasksListComponent />
+						</Route>
+						<Route path="/signup">
+							<SignUP />
 						</Route>
 						<Route path="/"></Route>
 					</Switch>

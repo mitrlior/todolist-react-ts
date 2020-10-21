@@ -22,6 +22,9 @@ export default class NavigationBar extends React.Component<IProps, IState> {
 						<li>
 							<Link to="/finished">Finished</Link>
 						</li>
+						<li>
+							<Link to="/signup">SignUp</Link>
+						</li>
 					</ul>
 				</nav>
 			</div>

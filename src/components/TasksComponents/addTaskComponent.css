@@ -1,32 +1,40 @@
-#to-do-form {
-	margin: 1px;
+.to-do-wrapper {
+	outline-style: no;
 }
-#to-do-form input {
+.to-do-form {
+	outline: none;
+}
+.to-do-form input {
 	background-color: aquamarine;
 	border: 0;
 	width: 18vw;
-	padding: 1vh;
-	margin: 2vh 1vw 2vh 1vw;
+	margin-right: 5%;
 	border-radius: 10px;
 	color: blue;
 }
-#to-do-form input::placeholder {
+.to-do-form input::placeholder {
 	color: red;
 }
-#to-do-form input:focus {
+.to-do-form input:focus {
 	outline: none;
 }
-#to-do-form button {
+.addTaskBtn {
+	outline: none;
 	height: 4vh;
 	width: 3 vw;
 	border-radius: 10px;
 	border: 0;
-	background-color: #4c64fd;
+	background-color: rgb(4, 49, 246);
 	margin: 1 vh;
 	cursor: pointer;
 	font-weight: bold;
 	color: black;
 }
-#to-do-form button:focus {
+.addTaskBtn:hover {
 	outline: none;
+	background-color: rgb(1, 100, 255);
+}
+.addTaskBtn:active {
+	outline: none;
+	background-color: rgb(100, 100, 255)
 }

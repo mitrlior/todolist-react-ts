@@ -53,7 +53,7 @@ input::placeholder {
 	font-weight: lighter;
 	color: #bbb;
 }
-button {
+.signUpBtn {
 	min-width: 100%;
 	cursor: pointer;
 	margin-right: 0.25em;
@@ -64,7 +64,7 @@ button {
 	background-color: rgb(22, 165, 58);
 	color: #fefefe;
 }
-button:hover {
+.signUpBtn:hover {
 	background-color: rgb(6, 73, 11);
 	color: #fefefe;
 }

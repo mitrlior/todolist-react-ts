@@ -1,5 +1,5 @@
 import React from "react";
-import Task from "../models/task.models";
+import Task from "../../models/task.models";
 import { Icon } from "semantic-ui-react";
 import "./taskComponent.css";
 import { observer } from "mobx-react";

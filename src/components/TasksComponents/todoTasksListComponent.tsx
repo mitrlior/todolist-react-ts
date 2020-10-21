@@ -3,7 +3,7 @@ import React from "react";
 import Task from "../../models/task.models";
 import rootStores from "../../stores";
 import { TASKS_STORE } from "../../stores/storesKeys";
-import TaskComponent from "../taskComponent";
+import TaskComponent from "./taskComponent";
 import "./todoTasksListComponent.css";
 
 interface IProps {}

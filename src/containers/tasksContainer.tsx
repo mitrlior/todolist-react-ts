@@ -1,8 +1,8 @@
 import { observer } from "mobx-react";
 import React from "react";
-import AddTaskComponent from "../components/Tasks/addTaskComponent";
-import FinishedTasksListComponent from "../components/Tasks/finishedTasksListComponent";
-import TodoTasksListComponent from "../components/Tasks/todoTasksListComponent";
+import AddTaskComponent from "../components/TasksComponents/addTaskComponent";
+import FinishedTasksListComponent from "../components/TasksComponents/finishedTasksListComponent";
+import TodoTasksListComponent from "../components/TasksComponents/todoTasksListComponent";
 import "./TaskContainer.css";
 
 interface IProps {}

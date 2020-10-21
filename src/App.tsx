@@ -5,8 +5,8 @@ import TaskContainer from "./containers/tasksContainer";
 import rootStores from "./stores";
 import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
-import TodoTasksListComponent from "./components/Tasks/todoTasksListComponent";
-import FinishedTasksListComponent from "./components/Tasks/finishedTasksListComponent";
+import TodoTasksListComponent from "./components/TasksComponents/todoTasksListComponent";
+import FinishedTasksListComponent from "./components/TasksComponents/finishedTasksListComponent";
 import NavigationBar from "./components/NavigationBar";
 
 @observer

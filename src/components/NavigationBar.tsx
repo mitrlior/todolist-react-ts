@@ -12,6 +12,7 @@ export default class NavigationBar extends React.Component<IProps, IState> {
 					<Link to="/tasks">Tasks</Link>
 					<Link to="/todos">Todos</Link>
 					<Link to="/finished">Finished</Link>
+					<Link to="signup">SignUp</Link>
 			</div>
 		);
 	}

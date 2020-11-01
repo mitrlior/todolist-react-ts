@@ -5,7 +5,6 @@ import rootStores from "../../stores";
 import { TASKS_STORE } from "../../stores/storesKeys";
 import TaskComponent from "./taskComponent";
 import "./todoTasksListComponent.css";
-import fire from '../../firebase/firebase';
 
 interface IProps {}
 

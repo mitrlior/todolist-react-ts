@@ -1,4 +1,5 @@
 import { action, computed, makeObservable, observable } from "mobx";
+import fire from "../firebase/firebase";
 import Task from "../models/task.models";
 
 export default class TasksStore {
@@ -31,7 +32,14 @@ export default class TasksStore {
 
   @action
   public addTask(task: Task) {
-    this.todoTasks = this.todoTasks.concat(task);
+    //this.todoTasks = this.todoTasks.concat(task);
+    //fire.database().ref("todos").push(task);
+    this.todoTasks = new Array<Task>();
+    fire.database().ref('todos').on("value",snaphot =>{
+      snaphot.forEach(snap =>{
+        this.todoTasks.push(new Task(snap.val().text,snap.val().key));
+      });
+        });
   }
   @action
   public removeTask(taskToRemove: Task) {

@@ -3,6 +3,8 @@ import Task from "../../models/task.models";
 import rootStores from "../../stores";
 import { TASKS_STORE } from "../../stores/storesKeys";
 import "./addTaskComponent.css";
+import fire from '../../firebase/firebase'
+
 
 interface IProps {}
 
